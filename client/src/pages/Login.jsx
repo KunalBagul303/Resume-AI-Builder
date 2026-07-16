@@ -1,8 +1,13 @@
 import React from 'react'
 import {Lock, Mail , User2Icon} from 'lucide-react'
+import api from '../configs/api'
+import { useDispatch } from 'react-redux'
+import { login } from '../app/features/authSlice'
+import toast from 'react-hot-toast'
 
 const Login = () => {
 
+    const dispatch = useDispatch()
     const query = new URLSearchParams(window.location.search)
     const urlState = query.get('state')
     const [state, setState] = React.useState( urlState || "login")
@@ -13,9 +18,16 @@ const Login = () => {
         password: ''
     })
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async  (e) => {
         e.preventDefault()
-
+         try {
+            const { data } = await api.post(`/api/users/${state}`, formData)
+            dispatch(login(data))
+            localStorage.setItem('token', data.token)
+            toast.success(data.message)
+        } catch (error) {
+            toast(error?.response?.data?.message || error.message)
+        }
     }
 
     const handleChange = (e) => {
@@ -24,7 +36,7 @@ const Login = () => {
     }
 
     return (
-       <div className="min-h-screen bg-gradient-to-br from-[#0caf04ef] via-[#ffffff] to-[#099509] flex items-center justify-center px-4">
+       <div className="min-h-screen bg-gradient-to-br from-[#a9ffa4ef] via-[#ffffff] to-[#a2f9a2] flex items-center justify-center px-4">
     <form
         onSubmit={handleSubmit}
         className="sm:w-[400px] w-full text-center bg-white/70 backdrop-blur-lg border border-green-200 rounded-3xl px-8 py-2 shadow-2xl shadow-green-200/50"
