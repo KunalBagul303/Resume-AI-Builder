@@ -13,13 +13,7 @@ const PORT = process.env.PORT || 3000;
 await connectDB()
 
 app.use(express.json())
-app.use(cors({
-    origin: [
-        "http://localhost:5173",
-        "https://resume-ai-builder-amber.vercel.app"
-    ],
-    credentials: true
-}))
+aapp.use(cors())
 
 app.get('/' , (req,res) => res.send("Server is live..."))
 app.use('/api/users' , userRouter)
