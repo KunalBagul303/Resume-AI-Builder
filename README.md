@@ -93,21 +93,6 @@ npm start
 
 ---
 
-## 🔑 Environment Variables
-
-Create a `.env` file inside the server folder.
-
-```env
-MONGODB_URI=your_mongodb_uri
-JWT_SECRET=your_secret_key
-GEMINI_API_KEY=your_gemini_api_key
-IMAGEKIT_PUBLIC_KEY=your_public_key
-IMAGEKIT_PRIVATE_KEY=your_private_key
-IMAGEKIT_URL_ENDPOINT=your_url_endpoint
-```
-
----
-
 ## 🌐 Live Demo
 
 🔗 https://resume-ai-builder-1-bv8q.onrender.com
