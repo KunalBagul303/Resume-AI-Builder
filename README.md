@@ -52,17 +52,6 @@ An AI-powered Full-Stack Resume Builder built with the MERN Stack that helps use
 
 ---
 
-## 📸 Screenshots
-
-> Add screenshots of:
-- Home Page
-- Dashboard
-- Resume Builder
-- AI Enhancement
-- Resume Templates
-- Public Resume Link
-
----
 
 ## 📂 Project Structure
 
